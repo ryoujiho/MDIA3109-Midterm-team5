@@ -1,10 +1,10 @@
 import './App.scss';
-import Sidemenu from './comps/sidemenu';
+import Main from 'pages/main';
 
 function App() {
   return (
     <div className="App">
-      <Sidemenu />
+      <Main />
     </div>
   );
 }
