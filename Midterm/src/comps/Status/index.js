@@ -10,6 +10,7 @@ const StatusContainer = styled.div`
     border-radius: 50px;
     color :white;
     font-family: roboto;
+    font-weight: 500;
 
     background: ${({ bg }) => handleBG(bg)};
 
@@ -25,7 +26,7 @@ const handleBG = bg => {
         case "waiting":
             return "linear-gradient(90deg, #FF7347 10.09%, #FF4874 91.74%)";
         default:
-            return "black";
+            return "#3E3E3E";
     }
 }
 
