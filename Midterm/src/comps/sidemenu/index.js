@@ -7,8 +7,10 @@ const SideMenuContainer = styled.div`
     background-image: linear-gradient(180deg, #C345FF, #0057FF);
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items: center;
     justify-content:space-around;
+
+    font-family: roboto;
 `;
 
 const MenuCategoy = styled.h3`
@@ -18,6 +20,8 @@ const MenuCategoy = styled.h3`
 const MenuList = styled.ul`
     list-style-type: none;
     color:#fff;
+    align-items:center;
+    display:contents;
 `;
 
 const ListOption = styled.li`
@@ -39,15 +43,15 @@ width:20%;
 
 const Sidemenu =(list) => {
     return <SideMenuContainer>
-        <MenuCategoy>Status</MenuCategoy>
         <MenuList>
+        <MenuCategoy>Status</MenuCategoy>
             <ListOption>Watched</ListOption>
             <ListOption>Watching</ListOption>
             <ListOption>Stopped</ListOption>
             <ListOption>Waiting</ListOption>
         </MenuList>
-        <MenuCategoy>Platform</MenuCategoy>
         <MenuList>
+        <MenuCategoy>Platform</MenuCategoy>
             <ListOption>Netflix</ListOption>
             <ListOption>Disney+</ListOption>
             <ListOption>Hulu</ListOption>
