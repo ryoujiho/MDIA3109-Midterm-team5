@@ -6,5 +6,7 @@ export default {
   component: Status,
 };
 
+
 export const DefaultStatus = () => <Status />
-export const LabelStatus = () => <Status />
+export const WatchingStatus = () => <Status text="Watching" border="3px black solid" bg="watching"/>
+export const WatchedStatus = () => <Status text="Watched" bg="watched"/>
