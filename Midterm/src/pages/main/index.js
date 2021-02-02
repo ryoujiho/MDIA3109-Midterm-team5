@@ -10,14 +10,12 @@ const Main = () => {
         })
         .then((response)=>{
             let arr = response.data.movies;
-            let filtered = arr.filter(arr => arr.status === "false")
-            setContent(response.data.movies)
-            console.log(filtered)
+            let filtered = arr.filter(arr => arr.status !== "false")
+            setContent(filtered)
         });
     }, [])
     return <div className="main">
         <TopBar/>
-        
         <div className="contents-list">
         { content.map((i)=>{
             return (

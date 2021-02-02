@@ -37,7 +37,7 @@ const MenuWrapper = styled.div`
     z-index:99;
     left: ${props=>props.openMenu ? "0px" : "-320px"};
     top:0;
-    transition:0.2s all ease;
+    transition:0.4s all ease;
     height:100vh;
 `;
 
