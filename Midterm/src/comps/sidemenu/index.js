@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const SideMenuContainer = styled.div`
-    width:250px;
-    height:500px;
+    width:180px;
+    height:100%;
     background-image: linear-gradient(180deg, #C345FF, #0057FF);
     display:flex;
     flex-direction:column;
@@ -27,8 +27,9 @@ const ListOption = styled.li`
     width:100%;
     font-weight:300;
     font-size:11pt;
-    margin:2px 0px;
+    margin: -50px 0px;
     text-align:center;
+    
 `;
 
 const Reset = styled.button`
@@ -45,17 +46,28 @@ width:20%;
     }
 `;
 
-const Sidemenu =(list) => {
+const Hamburger = styled.div`
+    margin-left:10px;
+    width: 30px;
+    img {
+        width:100%;
+    }
+`;
+
+const Sidemenu =({onClick}) => {
     return <SideMenuContainer>
+        <Hamburger onClick={onClick}>
+            <img src="Hamburger_Menu.png"/>
+        </Hamburger>
         <MenuList>
-        <MenuCategoy>Status</MenuCategoy>
+            <MenuCategoy>Status</MenuCategoy>
             <ListOption>Watched</ListOption>
             <ListOption>Watching</ListOption>
             <ListOption>Stopped</ListOption>
             <ListOption>Waiting</ListOption>
         </MenuList>
         <MenuList>
-        <MenuCategoy>Platform</MenuCategoy>
+            <MenuCategoy>Platform</MenuCategoy>
             <ListOption>Netflix</ListOption>
             <ListOption>Disney+</ListOption>
             <ListOption>Hulu</ListOption>
