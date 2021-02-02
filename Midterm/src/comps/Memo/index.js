@@ -14,7 +14,6 @@ line-height: 23px;
 color: #000000;
 `
 const MemoInput = styled.input`
-
 border: none;
 border-bottom:gray 1px solid;  
 `
