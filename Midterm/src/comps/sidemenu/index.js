@@ -14,6 +14,7 @@ const SideMenuContainer = styled.div`
 
 const MenuCategoy = styled.h3`
     color:#fff;
+    margin-bottom:-20px;
 `;
 
 const MenuList = styled.ul`
@@ -27,7 +28,7 @@ const ListOption = styled.li`
     width:100%;
     font-weight:300;
     font-size:11pt;
-    margin: -50px 0px;
+    margin: -40px 0px;
     text-align:center;
     
 `;
@@ -46,7 +47,7 @@ width:20%;
     }
 `;
 
-const Hamburger = styled.div`
+const Close = styled.div`
     margin-left:10px;
     width: 30px;
     img {
@@ -56,9 +57,9 @@ const Hamburger = styled.div`
 
 const Sidemenu =({onClick}) => {
     return <SideMenuContainer>
-        <Hamburger onClick={onClick}>
-            <img src="Hamburger_Menu.png"/>
-        </Hamburger>
+        <Close onClick={onClick}>
+            <img src="/close.png"/>
+        </Close>
         <MenuList>
             <MenuCategoy>Status</MenuCategoy>
             <ListOption>Watched</ListOption>
@@ -74,7 +75,7 @@ const Sidemenu =({onClick}) => {
             <ListOption>Amazon Prime</ListOption>
         </MenuList>
         <Reset>Reset</Reset>
-        <AddBtn><img src="/add.png"/></AddBtn>
+        <AddBtn><img src="Add.png"/></AddBtn>
     </SideMenuContainer>
 }
 
