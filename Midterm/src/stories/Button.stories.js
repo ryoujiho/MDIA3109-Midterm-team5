@@ -7,3 +7,4 @@ export default {
 };
 
 export const DefaultButton = () => <Button />
+export const TextButton = () => <Button text="Submit"/>
