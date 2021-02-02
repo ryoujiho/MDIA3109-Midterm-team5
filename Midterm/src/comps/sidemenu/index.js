@@ -9,6 +9,7 @@ const SideMenuContainer = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:space-around;
+    font-family: 'Roboto', sans-serif;
 `;
 
 const MenuCategoy = styled.h3`
@@ -21,6 +22,11 @@ const MenuList = styled.ul`
 `;
 
 const ListOption = styled.li`
+    width:100%;
+    font-weight:300;
+    font-size:11pt;
+    margin:2px 0px;
+    text-align:center;
 `;
 
 const Reset = styled.button`
