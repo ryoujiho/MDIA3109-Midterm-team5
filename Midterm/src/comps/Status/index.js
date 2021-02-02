@@ -8,45 +8,40 @@ const StatusContainer = styled.div`
     align-items:center;
     justify-content:center;
     border-radius: 50px;
-    background: ${props => props.theme.status};
+    color :white;
+    font-family: roboto;
+    font-weight: 500;
+
+    background: ${({ bg }) => handleBG(bg)};
+
+    border: ${props => props.border ? props.border : "3px black solid"};
 `;
 
-const theme = {
-    status: "linear-gradient(90deg, #C347FF 6.42%, #4A53FF 91.74%)"
-};
-
-const watched = {
-    status: "linear-gradient(90deg, #FF4752 10.09%, #C348FF 93.58%);"
-}
-
-const waiting = {
-    status: "linear-gradient(90deg, #FF7347 10.09%, #FF4874 91.74%);"
-}
-
-const stopped = {
-    status: "#3E3E3E;"
+const handleBG = bg => {
+    switch (bg) {
+        case "watched":
+            return "linear-gradient(90deg, #FF4752 10.09%, #C348FF 93.58%)";
+        case "watching":
+            return "linear-gradient(90deg, #C347FF 6.42%, #4A53FF 91.74%)";
+        case "waiting":
+            return "linear-gradient(90deg, #FF7347 10.09%, #FF4874 91.74%)";
+        default:
+            return "#3E3E3E";
+    }
 }
 
 
-const Status = () => {
+const Status = ({bg, border, text}) => {
     return <div> 
-    <StatusContainer theme={theme}> 
-        <p>Status</p>
-    </StatusContainer>
-    <StatusContainer theme={watched}> 
-        <p>Status</p>
-    </StatusContainer>
-    <StatusContainer theme={waiting}> 
-        <p>Status</p>
-    </StatusContainer>
-    <StatusContainer theme={stopped}> 
-        <p>Status</p>
+    <StatusContainer border={border} bg={bg}> 
+        <p>{text}</p>
     </StatusContainer>
     </div>
 }
 
 Status.defaultProps = {
-
+    border: "none",
+    text: "status",
 }
 
-export default Status
+export default  Status;
