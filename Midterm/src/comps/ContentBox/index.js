@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const ContentCont = styled.div`
-    width:85%;
+    width:60%;
     height:auto;
     // max-height:300px;
     border: 1px solid grey;
