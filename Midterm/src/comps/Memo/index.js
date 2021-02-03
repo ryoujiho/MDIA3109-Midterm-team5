@@ -19,9 +19,9 @@ const MemoInput = styled.textarea`
 const Memo =({border, catchMemo}) => {
     return <MemoContainer>
        <MemoText>Memo</MemoText>
-       <MemoInput rows="4" cols="40" type='text' placeholder='Leave Memo'onChange={catchMemo}></MemoInput>
+       <MemoInput rows="4" cols="40" type='text' 
+       placeholder='Leave Memo'onChange={catchMemo}></MemoInput>
     </MemoContainer>
-    </div>
 }
 
 Memo.defaultProps = {
