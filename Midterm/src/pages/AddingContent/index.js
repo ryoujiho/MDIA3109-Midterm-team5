@@ -11,16 +11,23 @@ import axios from 'axios';
 const AddContent = () => {
 
     const [title, setTitle] = useState("");
+    const [director, setDirector] = useState("");
     const [status, setStatus] = useState("");
     const [platform, setPlatform] = useState("");
     const [year, setYear] = useState("");
+    const [img, setImg] = useState("");
+    const [memo, setMemo] = useState("");
+    const [selected, setSelected] = useState(false);
 
-    const HandleAdding = async(title, status, platform, year) => {
+    const HandleAdding = async(title, director, status, platform, year, img, memo) => {
         let resp = await axios.post("/api/movies", {
             title: title,
+            director: director,
             status: status,
             platform: platform,
-            year: year
+            year: year,
+            img:img,
+            memo:memo
             
         })
         console.log(resp);
@@ -28,16 +35,27 @@ const AddContent = () => {
 
     return <div className="add-content">
         <TopBar/>
-        <InputComp catchInput={(e)=>{
+        <InputComp inputtitle={"Content Name"} catchInput={(e)=>{
             setTitle(e.target.value)
         }}/>
+        <div className="contnet-infomation">
+            <InputComp inputtitle={"Director"} catchInput={(e)=>{
+                setDirector(e.target.value)
+            }}/>
+
+            <InputComp inputtitle={"Year"} catchInput={(e)=>{
+                setYear(e.target.value)
+            }}/>   
+        </div>
         <h2>Status</h2>
         <div className="status">
-            <Status onClick={()=>{
+            <Status selected={selected} onClick={()=>{
                 setStatus("watching")
+                setSelected(!selected)
             }} text="Watching" bg="watching"/>
-            <Status onClick={()=>{
+            <Status selected={selected} onClick={()=>{
                 setStatus("watched")
+                setSelected(!selected)
             }} text="Watched" bg="watched"/>
             <Status onClick={()=>{
                 setStatus("waiting")
@@ -62,10 +80,10 @@ const AddContent = () => {
             }} text="Hulu" bg="hulu" color="black"/>
         </div>
         <Memo catchMemo={(e)=>{
-            setYear(e.target.value)
+            setMemo(e.target.value)
         }}/>
         <Button onClick={()=>{
-            HandleAdding(title, status, platform, year)
+            HandleAdding(title, director, status, platform, year, img)
         }} text="Add"/>
 
     </div>

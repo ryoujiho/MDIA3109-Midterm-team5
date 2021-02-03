@@ -4,28 +4,32 @@ import styled from 'styled-components';
 
 const InputCont = styled.div`
     width: 100%;
-    border:1px solid #000;
-    padding:20px 0px;
+    padding:10px 0px;
 `;
 
-const InputTitle = styled.span`
-    text-size:14px;
+const InputTitle = styled.h2`
+    font-size:16px;
 `;
 
 const InputThing = styled.input`
     width:100%;
-    padding:20px 0px
+    padding:10px 0px;
+    outline:none;
+
+    input:focus{
+    outline:none;
+    }
 `;
 
-const InputComp = ({inputtitle, catchInput}) => {
+const InputComp = ({inputtitle, catchInput, value}) => {
     return <InputCont>
         <InputTitle>{inputtitle}</InputTitle>
-        <InputThing onChange={catchInput}/>
+        <InputThing onChange={catchInput} placeholder={value}/>
     </InputCont>
 }
 
 InputComp.defaultProps = {
-    inputtitle:"inputtitle"
+    inputtitle:"Input Title"
 }
 
 export default InputComp

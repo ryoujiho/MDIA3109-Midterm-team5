@@ -2,6 +2,13 @@ import React, {useState, useEffect} from 'react';
 import TopBar from 'comps/Topbar';
 import ContentBox from 'comps/ContentBox';
 import axios from 'axios';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+  
 
 
 const Main = () => {
@@ -68,11 +75,14 @@ const Main = () => {
         }
         />
         <div className="contents-list">
-            {finalMovie && finalMovie.map(i=>{
-                return  <ContentBox 
-                title={i.title} 
-                director={i.director}
-                year={i.year}/>
+            {finalMovie && finalMovie.map(o=>{
+                return  <Link 
+                style={{ textDecoration: 'none'}} to={{ pathname: "/ContentDetail", state: {o} }}>
+                    <ContentBox 
+                        title={o.title} 
+                        director={o.director}
+                        year={o.year}/>
+                </Link>
             })}
         </div>
     </div>
