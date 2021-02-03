@@ -1,0 +1,14 @@
+.add-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .status, .platform {
+        display:flex;
+        width:100%;
+        overflow:scroll;
+        margin:50px 0px;
+    }
+}
+

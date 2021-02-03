@@ -29,8 +29,8 @@ const handleBG = bg => {
 }
 
 
-const Status = ({bg, border, text}) => {
-    return <div> 
+const Status = ({bg, border, text, onClick}) => {
+    return <div onClick={onClick}> 
     <StatusContainer border={border} bg={bg}> 
         <p>{text}</p>
     </StatusContainer>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-
+import {Link} from "react-router-dom";
 
 const SideMenuContainer = styled.div`
     width:180px;
@@ -75,7 +75,7 @@ const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset,
             <ListOption onClick={amazon}>Amazon Prime</ListOption>
         </MenuList>
         <Reset onClick={onReset}>Reset</Reset>
-        <AddBtn><img src="Add.png"/></AddBtn>
+        <AddBtn><Link to='/AddingContent'><img src="Add.png"/></Link></AddBtn>
     </SideMenuContainer>
 }
 
