@@ -47,19 +47,39 @@ width:20%;
     }
 `;
 
-const Close = styled.div`
-    margin-left:10px;
-    width: 30px;
+const Icons = styled.div`
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+`;
+
+const Icon = styled.div`
+    width: 25px;
+
+    a {
+        width: 30px;
+
+        img {
+            width:100%;
+        }
+    }
+
     img {
         width:100%;
     }
 `;
 
+
 const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
     return <SideMenuContainer>
-        <Close onClick={onClick}>
-            <img src="/close.png"/>
-        </Close>
+        <Icons>
+            <Icon onClick={onClick}>
+                <Link to='/Main'><img src="/home.png"/></Link>
+            </Icon>
+            <Icon onClick={onClick}>
+                <img src="/close.png"/>
+            </Icon>
+        </Icons>
         <MenuList>
             <MenuCategoy>Status</MenuCategoy>
             <ListOption onClick={onWatched}>Watched</ListOption>
