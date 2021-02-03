@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import Sidemenu from 'comps/sidemenu';
 
-const ArrowbarContainer = styled.div`
+const ArrowBarContainer = styled.div`
     width:100%;
     max-height:500px;
     height:80px;
@@ -43,9 +43,9 @@ const MenuWrapper = styled.div`
 
 
 
-const Arrowbar =({}) => {
+const ArrowBar =({}) => {
     const [openMenu, setOpenMenu] = useState(false);
-    return <ArrowbarContainer>
+    return <ArrowBarContainer>
         <Arrow onClick={()=>{
             setOpenMenu(!openMenu);
         }}>
@@ -62,11 +62,11 @@ const Arrowbar =({}) => {
         }}/>
         </MenuWrapper>
 
-    </ArrowbarContainer>
+    </ArrowBarContainer>
 }
 
-Arrowbar.defaultProps = {
+ArrowBar.defaultProps = {
 
 }
 
-export default Arrowbar
+export default ArrowBar
