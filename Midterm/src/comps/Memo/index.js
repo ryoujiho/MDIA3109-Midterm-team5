@@ -21,7 +21,6 @@ const Memo =({border, catchMemo}) => {
        <MemoText>Memo</MemoText>
        <MemoInput rows="4" cols="40" type='text' placeholder='Leave Memo'onChange={catchMemo}></MemoInput>
     </MemoContainer>
-    </div>
 }
 
 Memo.defaultProps = {
