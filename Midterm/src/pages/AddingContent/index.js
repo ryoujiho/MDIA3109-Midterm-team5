@@ -66,18 +66,34 @@ const AddContent = () => {
         </div>
         <h2>Platform</h2>
         <div className="platform">
-            <Platform onClick={()=>{
-                setPlatform("Netflix")
-            }} text="Netflix" bg="netflix" color="black"/>
-            <Platform onClick={()=>{
-                setPlatform("Disney+")
-            }} text="Disney +" bg="disney"/>
-            <Platform onClick={()=>{
-                setPlatform("Amazon")
-            }} text="Amazon" bg="amazon" color="black"/>
-            <Platform onClick={()=>{
-                setPlatform("Hulu")
-            }} text="Hulu" bg="hulu" color="black"/>
+            <table>
+                <tr>
+                    <td> 
+                    <Platform onClick={()=>{
+                        setPlatform("Netflix")
+                    }} text="Netflix" bg="netflix" color="black"/>
+                    </td>
+                    <td>
+                    <Platform onClick={()=>{
+                        setPlatform("Disney+")
+                    }} text="Disney +" bg="disney"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <Platform onClick={()=>{
+                        setPlatform("Amazon")
+                    }} text="Amazon" bg="amazon" color="black"/>
+                    </td>
+                    <td> 
+                    <Platform onClick={()=>{
+                        setPlatform("Hulu")
+                    }} text="Hulu" bg="hulu" color="black"/>
+
+                    </td>
+                </tr>
+            </table>
         </div>
         <Memo catchMemo={(e)=>{
             setMemo(e.target.value)

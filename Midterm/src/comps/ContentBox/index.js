@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 const ContentCont = styled.div`
     width:90%;
-    height:150px;
-    max-height:150px;
+    // height:150px;
+    max-height: 50%;
     border: 1px solid grey;
     display:flex;
     margin-bottom: 20px;
