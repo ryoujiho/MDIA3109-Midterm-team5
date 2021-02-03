@@ -56,7 +56,8 @@ const ContentBox =({img, title, director, year}) => {
 ContentBox.defaultProps = {
     title: "title",
     director: "director",
-    year: "year"
+    year: "year",
+    imag: null
 }
 
 export default ContentBox
