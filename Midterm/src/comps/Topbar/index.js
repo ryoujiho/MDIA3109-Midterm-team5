@@ -43,7 +43,7 @@ const MenuWrapper = styled.div`
 
 
 
-const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset}) => {
+const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
     const [openMenu, setOpenMenu] = useState(false);
     return <TopBarContainer>
         <Hamburger onClick={()=>{
@@ -63,7 +63,10 @@ const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset}) => {
             onStopped={onStopped} 
             onWaiting={onWaiting} 
             onReset={onReset}
-            
+            netflix={netflix}
+            disney={disney}
+            hulu={hulu}
+            amazon={amazon}
             onClick={()=>{
             setOpenMenu(!openMenu);
         }}/>
