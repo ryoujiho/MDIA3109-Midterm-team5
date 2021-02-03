@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import Sidemenu from 'comps/sidemenu';
 
 const TopBarContainer = styled.div`
     width:100%;
@@ -9,6 +10,8 @@ const TopBarContainer = styled.div`
     display:flex;
     justify-content:space-between;
     align-items:center;
+    box-shadow: 0px 6px 7px 3px rgba(0,0,0,0.10);
+    position:relative;
 `;
 
 const Hamburger = styled.div`
@@ -29,11 +32,46 @@ const Settings = styled.div`
     }
     `;
 
-const TopBar =() => {
+const MenuWrapper = styled.div`
+    position:absolute;
+    z-index:99;
+    left: ${props=>props.openMenu ? "0px" : "-320px"};
+    top:0;
+    transition:0.4s all ease;
+    height:100vh;
+`;
+
+
+
+const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
+    const [openMenu, setOpenMenu] = useState(false);
     return <TopBarContainer>
-        <Hamburger><img src="Hamburger_Menu.png"/></Hamburger>
+        <Hamburger onClick={()=>{
+            setOpenMenu(!openMenu);
+        }}>
+            <img src="Hamburger_Menu.png"/>
+        </Hamburger>
         
-        <Settings><img src="settings.png" /></Settings>
+        <Settings>
+            <img src="settings.png" />
+        </Settings>
+
+        <MenuWrapper openMenu={openMenu}>
+            <Sidemenu 
+            onWatched={onWatched} 
+            onWatching={onWatching} 
+            onStopped={onStopped} 
+            onWaiting={onWaiting} 
+            onReset={onReset}
+            netflix={netflix}
+            disney={disney}
+            hulu={hulu}
+            amazon={amazon}
+            onClick={()=>{
+            setOpenMenu(!openMenu);
+        }}/>
+        </MenuWrapper>
+
     </TopBarContainer>
 }
 

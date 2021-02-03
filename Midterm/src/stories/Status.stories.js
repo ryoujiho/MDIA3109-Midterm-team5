@@ -8,7 +8,7 @@ export default {
 
 
 export const DefaultStatus = () => <Status />
-export const WatchingStatusSelected = () => <Status text="Watching" border="3px black solid" bg="watching"/>
+export const WatchingStatusSelected = () => <Status text="Watching" border="inset 0px 0px 0px 2.5px #000" bg="watching"/>
 export const WatchingStatus = () => <Status text="Watching" bg="watching"/>
 export const WatchedStatus = () => <Status text="Watched" bg="watched"/>
 export const WaitingStatus = () => <Status text="Waiting" bg="waiting"/>

@@ -3,21 +3,23 @@ import styled from 'styled-components';
 
 
 const ContentCont = styled.div`
-    width:60%;
-    height:auto;
-    // max-height:300px;
+    width:90%;
+    height:150px;
+    max-height:150px;
     border: 1px solid grey;
-    display:flex
+    display:flex;
+    margin-bottom: 20px;
 `;
 
 const ConImg = styled.div `
     width:40%;
-    height: auto;
+    height: 100%;
     background-color: grey;
 
     img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit:cover;
     }
 `;
 
@@ -30,11 +32,10 @@ const Condetail = styled.div`
     font-family: roboto;
 
     h3 {
-        margin-top: 10px;
-        font-size: 36px;
+        font-size: 18px;
     }
     span {
-        font-size: 28px;
+        font-size: 13px;
     }
 `;
 
@@ -55,7 +56,8 @@ const ContentBox =({img, title, director, year}) => {
 ContentBox.defaultProps = {
     title: "title",
     director: "director",
-    year: "year"
+    year: "year",
+    imag: null
 }
 
 export default ContentBox

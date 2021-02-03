@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {Link} from "react-router-dom";
 
 const SideMenuContainer = styled.div`
-    width:250px;
-    height:500px;
+    width:180px;
+    height:100%;
     background-image: linear-gradient(180deg, #C345FF, #0057FF);
     display:flex;
     flex-direction:column;
     align-items: center;
     justify-content:space-around;
-
-    font-family: roboto;
+    font-family: 'Roboto', sans-serif;
 `;
 
 const MenuCategoy = styled.h3`
     color:#fff;
+    margin-bottom:-20px;
 `;
 
 const MenuList = styled.ul`
@@ -25,6 +26,11 @@ const MenuList = styled.ul`
 `;
 
 const ListOption = styled.li`
+    width:100%;
+    font-weight:300;
+    font-size:11pt;
+    margin: -40px 0px;
+    text-align:center;  
 `;
 
 const Reset = styled.button`
@@ -41,24 +47,35 @@ width:20%;
     }
 `;
 
-const Sidemenu =(list) => {
+const Close = styled.div`
+    margin-left:10px;
+    width: 30px;
+    img {
+        width:100%;
+    }
+`;
+
+const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
     return <SideMenuContainer>
+        <Close onClick={onClick}>
+            <img src="/close.png"/>
+        </Close>
         <MenuList>
-        <MenuCategoy>Status</MenuCategoy>
-            <ListOption>Watched</ListOption>
-            <ListOption>Watching</ListOption>
-            <ListOption>Stopped</ListOption>
-            <ListOption>Waiting</ListOption>
+            <MenuCategoy>Status</MenuCategoy>
+            <ListOption onClick={onWatched}>Watched</ListOption>
+            <ListOption onClick={onWatching}>Watching</ListOption>
+            <ListOption onClick={onStopped}> Stopped</ListOption>
+            <ListOption onClick={onWaiting}>Waiting</ListOption>
         </MenuList>
         <MenuList>
-        <MenuCategoy>Platform</MenuCategoy>
-            <ListOption>Netflix</ListOption>
-            <ListOption>Disney+</ListOption>
-            <ListOption>Hulu</ListOption>
-            <ListOption>Amazon Prime</ListOption>
+            <MenuCategoy>Platform</MenuCategoy>
+            <ListOption onClick={netflix}>Netflix</ListOption>
+            <ListOption onClick={disney}>Disney+</ListOption>
+            <ListOption onClick={hulu}>Hulu</ListOption>
+            <ListOption onClick={amazon}>Amazon Prime</ListOption>
         </MenuList>
-        <Reset>Reset</Reset>
-        <AddBtn><img src="/add.png"/></AddBtn>
+        <Reset onClick={onReset}>Reset</Reset>
+        <AddBtn><Link to='/AddingContent'><img src="Add.png"/></Link></AddBtn>
     </SideMenuContainer>
 }
 

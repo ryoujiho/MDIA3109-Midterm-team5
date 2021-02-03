@@ -12,11 +12,12 @@ const BtnContainer = styled.div`
 
     font-family: roboto;
     font-width: 600;
+    margin:10px 0px;
 `;
 
 
-const Button = ({text}) => {
-    return <div>
+const Button = ({text, onClick}) => {
+    return <div onClick={onClick}>
     <BtnContainer>
         <p> {text} </p>
     </BtnContainer>

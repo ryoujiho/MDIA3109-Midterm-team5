@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+  height:100vh;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import './pages/main/main.scss';
 @import './pages/search/search.scss';
 @import './pages/settings/settings.scss';
+@import './pages/ContentDetail/contentdetail.scss';
+@import './pages/AddingContent/addingcontent.scss';

@@ -37,8 +37,8 @@ const handleBG = bg => {
 }
 
 
-const Plateform = ({bg, border, text, color}) => {
-    return <div> 
+const Plateform = ({bg, border, text, color, onClick}) => {
+    return <div onClick={onClick}> 
     <StatusContainer color={color} border={border} bg={bg}> 
         <p>{text}</p>
     </StatusContainer>
