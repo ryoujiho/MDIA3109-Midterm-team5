@@ -19,7 +19,8 @@ border-bottom:gray 1px solid;
 `
 
 const Memo =({border, catchMemo}) => {
-    return <MemoContainer>
+    return <div> 
+    <MemoContainer>
        <MemoText>Year</MemoText>
        <MemoInput type='text' placeholder='Leave Memo' size='50' onChange={catchMemo}></MemoInput>
     </MemoContainer>
