@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MemoContainer = styled.div`
-position: absolute;
 `;
 
 const MemoText = styled.div`
@@ -12,6 +11,7 @@ font-weight: bold;
 font-size: 20px;
 line-height: 23px;
 color: #000000;
+margin:10px 0px;
 `
 const MemoInput = styled.input`
 border: none;
@@ -19,10 +19,10 @@ border-bottom:gray 1px solid;
 `
 
 
-const Memo =({border}) => {
+const Memo =({border, catchMemo}) => {
     return <MemoContainer>
-       <MemoText>Memo</MemoText>
-       <MemoInput type='text' placeholder='Leave Memo' size='50'></MemoInput>
+       <MemoText>Year</MemoText>
+       <MemoInput type='text' placeholder='Leave Memo' size='50' onChange={catchMemo}></MemoInput>
     </MemoContainer>
 }
 
