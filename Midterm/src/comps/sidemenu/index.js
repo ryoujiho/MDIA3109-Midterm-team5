@@ -55,7 +55,7 @@ const Close = styled.div`
     }
 `;
 
-const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset}) => {
+const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
     return <SideMenuContainer>
         <Close onClick={onClick}>
             <img src="/close.png"/>
@@ -69,10 +69,10 @@ const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset}
         </MenuList>
         <MenuList>
             <MenuCategoy>Platform</MenuCategoy>
-            <ListOption>Netflix</ListOption>
-            <ListOption>Disney+</ListOption>
-            <ListOption>Hulu</ListOption>
-            <ListOption>Amazon Prime</ListOption>
+            <ListOption onClick={netflix}>Netflix</ListOption>
+            <ListOption onClick={disney}>Disney+</ListOption>
+            <ListOption onClick={hulu}>Hulu</ListOption>
+            <ListOption onClick={amazon}>Amazon Prime</ListOption>
         </MenuList>
         <Reset onClick={onReset}>Reset</Reset>
         <AddBtn><img src="Add.png"/></AddBtn>
@@ -80,11 +80,6 @@ const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset}
 }
 
 Sidemenu.defaultProps = {
-    onWatched:()=>{},
-    onWatching:()=>{},
-    onStopped:()=>{},
-    onWaiting:()=>{},
-    onReset:()=>{}
 }
 
 export default Sidemenu

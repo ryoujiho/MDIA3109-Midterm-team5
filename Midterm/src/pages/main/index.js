@@ -5,152 +5,75 @@ import axios from 'axios';
 
 
 const Main = () => {
-    const [content, setContent] = useState([]);
-    const [watched, setWatched] = useState("");
-    const [watching, setWatching] = useState("");
-    const [stopped, setStopped] = useState("");
-    const [waiting, setWaiting] = useState("");
-    const [reset, onReset] = useState("");
-    const [statusWatched, setStatusWatched] = useState([]);
-    const [statusWatching, setStatusWatching] = useState([]);
-    const [statusStopped, setStatusStopped] = useState([]);
-    const [statusWaiting, setStatusWaiting] = useState([]);
-    const [movieList, setMovieList] = useState([]);
 
-    let filtered;
-    
+    const [finalMovie, setfinalMovie] = useState([]);
+
+    const HandleMovies = async() => {
+        let resp = await axios.get("/api/movies/filter/nothing");
+        setfinalMovie(...[resp.data.movies])
+        console.log(finalMovie)
+    }
+
+    const HandleFilter = async(status) => {
+        let resp = await axios.get(`/api/movies/filter/${status}`);
+        setfinalMovie(...[resp.data.movies])
+        console.log(finalMovie)
+    }
+
+    const HandlePlatforms = async(platform) => {
+        let resp = await axios.get(`/api/movies/platform/${platform}`);
+        setfinalMovie(...[resp.data.movies])
+        console.log(finalMovie)
+    }
+
     useEffect(()=>{
-        axios.get("/api/movies", {  
-        })
-        .then((response)=>{
-            let arr = response.data.movies;
-            setMovieList(...[response.data.movies]);
-            console.log(movieList);
-            filtered = movieList.filter(arr => arr.status !== "false")
-            let Watched = arr.filter(arr => arr.status === "watched")
-            let Watching = arr.filter(arr => arr.status === "watching")
-            let Stopped = arr.filter(arr => arr.status === "stopped")
-            let Waiting = arr.filter(arr => arr.status === "waiting")
-            setContent(filtered)
-            setStatusWatched(Watched)
-            setStatusWatching(Watching)
-            setStatusStopped(Stopped)
-            setStatusWaiting(Waiting)
-        });
+        HandleMovies()
     }, [])
 
     return <div className="main">
         <TopBar onWatched={()=>{
-            setWatched(true)
-            console.log(watched);
+           HandleFilter("watched");
         }}
         onWatching={()=>{
-            setWatching(true)
-            console.log(watching);
+            HandleFilter("watching");
         }}
 
         onStopped={()=>{
-            setStopped(true)
-            console.log(stopped);
+            HandleFilter("stopped");
         }}
 
         onWaiting={()=>{
-            setWaiting(true)
-            console.log(waiting);
+            HandleFilter("waiting");
+        }}
+        
+        netflix={()=>{
+            HandlePlatforms("Netflix");
         }}
 
-        // onReset={()=>{
-        //     setReset
-        // }
-        // }
+        disney={()=>{
+            HandlePlatforms("Disney+");
+        }}
+
+        hulu={()=>{
+            HandlePlatforms("Hulu");
+        }}
+
+        amazon={()=>{
+            HandlePlatforms("Amazon");
+        }}
+
+        onReset={()=>{
+            HandleMovies()
+        }
+        }
         />
         <div className="contents-list">
-            {filtered.map(i=>{
+            {finalMovie && finalMovie.map(i=>{
                 return  <ContentBox 
                 title={i.title} 
                 director={i.director}
                 year={i.year}/>
             })}
-            {/* {watched
-            ?
-            statusWatched.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })
-            :
-            content.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })
-            }
-             */}
-            {/* {watching
-            ?
-            statusWatching.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })
-            :
-            content.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })} */}
-
-        {/* {waiting
-            ?
-            statusWaiting.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })
-            :
-            content.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })} */}
-
-        {/* {stopped
-            ?
-            statusStopped.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })
-            :
-            content.map((i)=>{
-                return (
-                    <ContentBox 
-                    title={i.title} 
-                    director={i.director}
-                    year={i.year}/>
-                )
-            })} */}
         </div>
     </div>
 }
