@@ -12,8 +12,8 @@ const StatusContainer = styled.div`
     font-family: roboto;
     font-weight: 500;
     background: ${({ bg }) => handleBG(bg)};
-    box-shadow:${props => props.border ? props.border : "inset 0px 0px 0px 2px #000"}; /* makes border insdie */
-`;
+    box-shadow:${props => props.selected ? "inset 0px 0px 0px 2px #000" : "none"}; /* makes border insdie */
+    `;
 
 const handleBG = bg => {
     switch (bg) {
@@ -29,17 +29,17 @@ const handleBG = bg => {
 }
 
 
-const Status = ({bg, border, text, onClick}) => {
+const Status = ({bg, selected, text, onClick}) => {
     return <div onClick={onClick}> 
-    <StatusContainer border={border} bg={bg}> 
+    <StatusContainer selected={selected} bg={bg}> 
         <p>{text}</p>
     </StatusContainer>
     </div>
 }
 
 Status.defaultProps = {
-    border: "none",
     text: "status",
+    selected: false
 }
 
 export default  Status;

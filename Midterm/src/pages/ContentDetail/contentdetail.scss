@@ -1,0 +1,15 @@
+.Content-detail {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .content-info {
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin:20px 0px;
+    }
+
+}

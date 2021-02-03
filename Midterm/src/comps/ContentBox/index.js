@@ -57,7 +57,7 @@ ContentBox.defaultProps = {
     title: "title",
     director: "director",
     year: "year",
-    imag: null
+    img: null
 }
 
 export default ContentBox

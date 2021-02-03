@@ -11,12 +11,19 @@
         border-spacing: 15px 15px;
     }
 
+    .contnet-infomation {
+        display:flex;
+    }
     .status, .platform {
         display:flex;
         justify-content: space-around;
         width:100%;
-        // overflow: hidden;
-        margin:50px 0px;
+        overflow:scroll;
+        margin:2px 0px;
+    }
+
+    h2 {
+        font-size:16px;
     }
 }
 
