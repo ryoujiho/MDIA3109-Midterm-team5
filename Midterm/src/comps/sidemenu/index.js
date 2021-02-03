@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
+
 const SideMenuContainer = styled.div`
     width:180px;
     height:100%;
@@ -29,8 +30,7 @@ const ListOption = styled.li`
     font-weight:300;
     font-size:11pt;
     margin: -40px 0px;
-    text-align:center;
-    
+    text-align:center;  
 `;
 
 const Reset = styled.button`
@@ -55,17 +55,17 @@ const Close = styled.div`
     }
 `;
 
-const Sidemenu =({onClick}) => {
+const Sidemenu =({onClick, onWatched, onWatching, onStopped, onWaiting, onReset}) => {
     return <SideMenuContainer>
         <Close onClick={onClick}>
             <img src="/close.png"/>
         </Close>
         <MenuList>
             <MenuCategoy>Status</MenuCategoy>
-            <ListOption>Watched</ListOption>
-            <ListOption>Watching</ListOption>
-            <ListOption>Stopped</ListOption>
-            <ListOption>Waiting</ListOption>
+            <ListOption onClick={onWatched}>Watched</ListOption>
+            <ListOption onClick={onWatching}>Watching</ListOption>
+            <ListOption onClick={onStopped}> Stopped</ListOption>
+            <ListOption onClick={onWaiting}>Waiting</ListOption>
         </MenuList>
         <MenuList>
             <MenuCategoy>Platform</MenuCategoy>
@@ -74,12 +74,17 @@ const Sidemenu =({onClick}) => {
             <ListOption>Hulu</ListOption>
             <ListOption>Amazon Prime</ListOption>
         </MenuList>
-        <Reset>Reset</Reset>
+        <Reset onClick={onReset}>Reset</Reset>
         <AddBtn><img src="Add.png"/></AddBtn>
     </SideMenuContainer>
 }
 
 Sidemenu.defaultProps = {
+    onWatched:()=>{},
+    onWatching:()=>{},
+    onStopped:()=>{},
+    onWaiting:()=>{},
+    onReset:()=>{}
 }
 
 export default Sidemenu

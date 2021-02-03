@@ -43,7 +43,7 @@ const MenuWrapper = styled.div`
 
 
 
-const TopBar =({}) => {
+const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset}) => {
     const [openMenu, setOpenMenu] = useState(false);
     return <TopBarContainer>
         <Hamburger onClick={()=>{
@@ -57,7 +57,14 @@ const TopBar =({}) => {
         </Settings>
 
         <MenuWrapper openMenu={openMenu}>
-            <Sidemenu onClick={()=>{
+            <Sidemenu 
+            onWatched={onWatched} 
+            onWatching={onWatching} 
+            onStopped={onStopped} 
+            onWaiting={onWaiting} 
+            onReset={onReset}
+            
+            onClick={()=>{
             setOpenMenu(!openMenu);
         }}/>
         </MenuWrapper>

@@ -8,13 +8,11 @@ const StatusContainer = styled.div`
     align-items:center;
     justify-content:center;
     border-radius: 50px;
-    color :white;
+    color: #fff;
     font-family: roboto;
     font-weight: 500;
-
     background: ${({ bg }) => handleBG(bg)};
-
-    border: ${props => props.border ? props.border : "3px black solid"};
+    box-shadow:${props => props.border ? props.border : "inset 0px 0px 0px 2px #000"}; /* makes border insdie */
 `;
 
 const handleBG = bg => {
