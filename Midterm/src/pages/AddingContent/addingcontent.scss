@@ -3,23 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    max-width: 40%;
+    width: 375px;
+    max-width: 375px;
 
     table{
+        display: flex;
+        flex-direction: column;
         border-collapse: separate;
         border-spacing: 15px 15px;
+
+        p{
+            cursor: pointer;
+        }
     }
 
-    .contnet-infomation {
+    .content-infomation {
         display:flex;
     }
     .status, .platform {
         display:flex;
         justify-content: space-around;
         width:100%;
-        overflow:scroll;
-        margin:2px 0px;
+        // overflow:scroll;
+        // margin:2px 0px;
     }
 
     h2 {
