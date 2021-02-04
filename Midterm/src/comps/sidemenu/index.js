@@ -14,6 +14,7 @@ const SideMenuContainer = styled.div`
 `;
 
 const MenuCategoy = styled.h3`
+cursor: default;
     color:#fff;
     margin-bottom:-20px;
 `;
@@ -26,6 +27,7 @@ const MenuList = styled.ul`
 `;
 
 const ListOption = styled.li`
+    cursor:pointer;
     width:100%;
     font-weight:300;
     font-size:11pt;
@@ -34,6 +36,7 @@ const ListOption = styled.li`
 `;
 
 const Reset = styled.button`
+    cursor:pointer;
     border:none;
     outline:none;
     background:transparent;
@@ -54,6 +57,7 @@ const Icons = styled.div`
 `;
 
 const Icon = styled.div`
+cursor:pointer;
     width: 25px;
 
     a {
