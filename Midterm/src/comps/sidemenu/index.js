@@ -14,7 +14,7 @@ const SideMenuContainer = styled.div`
 `;
 
 const MenuCategoy = styled.h3`
-cursor: default;
+    cursor: default;
     color:#fff;
     margin-bottom:-20px;
 `;
