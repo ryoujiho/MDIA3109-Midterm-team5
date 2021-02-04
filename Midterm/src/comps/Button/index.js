@@ -13,6 +13,7 @@ const BtnContainer = styled.div`
     font-family: roboto;
     font-width: 600;
     margin:10px 0px;
+
 `;
 
 

@@ -35,10 +35,10 @@ const AddContent = () => {
 
     return <div className="add-content">
         <TopBar />
-        <InputComp inputtitle={"Content Name"} catchInput={(e) => {
+        <InputComp className="content-name" inputtitle={"Content Name"} catchInput={(e) => {
             setTitle(e.target.value)
         }} />
-        <div className="contnet-infomation">
+        <div className="content-infomation">
             <InputComp inputtitle={"Director"} catchInput={(e) => {
                 setDirector(e.target.value)
             }} />
