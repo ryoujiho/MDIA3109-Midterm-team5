@@ -15,6 +15,7 @@ const TopBarContainer = styled.div`
 `;
 
 const Hamburger = styled.div`
+    cursor:pointer;
     margin-left:10px;
     width: 30px;
     img {

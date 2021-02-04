@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const InputCont = styled.div`
     width: 100%;
+    max-width: 90%;
     padding:10px 0px;
 `;
 

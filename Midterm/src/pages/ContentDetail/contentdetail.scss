@@ -1,11 +1,14 @@
 .Content-detail {
+    width: 375px;
+    max-width: 375px;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    
 
     .content-info {
-        width:100%;
+        width:90%;
         display:flex;
         justify-content: center;
         align-items: center;
