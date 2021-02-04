@@ -4,7 +4,7 @@ import InputComp from 'comps/Input';
 import Memo from 'comps/Memo';
 import Platform from 'comps/Platform';
 import Status from 'comps/Status';
-import TopBar from 'comps/Topbar';
+import Arrowbar from 'comps/Arrowbar';
 import React, { useState } from 'react';
 
 
@@ -34,20 +34,12 @@ const ContentEdit = () => {
     }
 
     return <div className="add-content">
-        <TopBar />
-        <InputComp inputtitle={"Content Name"} catchInput={(e) => {
-            setTitle(e.target.value)
-        }} />
-        <div className="contnet-infomation">
-            <InputComp inputtitle={"Director"} catchInput={(e) => {
-                setDirector(e.target.value)
-            }} />
-
-            <InputComp inputtitle={"Year"} catchInput={(e) => {
-                setYear(e.target.value)
-            }} />
-        </div>
+        <Arrowbar/>
+        <h1>Star Trek:Beyond</h1>
+        <h3>Adam Robitel 2016 Action/Sci-Fi Movie</h3>
+        <div>
         <h2>Status</h2>
+        </div>
         <div className="status">
             <table>
                 <tr>
