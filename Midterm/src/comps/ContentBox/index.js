@@ -4,11 +4,48 @@ import styled from 'styled-components';
 
 const ContentCont = styled.div`
     width:90%;
-    height:150px;
-    max-height:150px;
+    // height:150px;
+    position: relative;
+    max-height: 50%;
     border: 1px solid grey;
     display:flex;
     margin-bottom: 20px;
+    background-image: linear-gradient(
+        90deg, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,1) 100%
+        );
+    z-index: 1;
+
+    :before{
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(
+          -120deg,
+          hsl(280, 75%, 50%),
+          hsl(237, 75%, 40%)
+        );
+        z-index: -1;
+        transition: opacity 0.5s linear;
+        opacity: 0;
+    }
+
+:hover {
+    h3{
+        color:white;
+    }
+    span{
+        color: white;
+    }
+}
+
+    :hover::before{
+            opacity:1;
+    }
 `;
 
 const ConImg = styled.div `
@@ -33,10 +70,16 @@ const Condetail = styled.div`
 
     h3 {
         font-size: 18px;
+        color: #242424;
+        transition: color 1s;
     }
     span {
         font-size: 13px;
+        color: #242424;
+        transition: color 1s;
+
     }
+    
 `;
 
 
@@ -56,7 +99,8 @@ const ContentBox =({img, title, director, year}) => {
 ContentBox.defaultProps = {
     title: "title",
     director: "director",
-    year: "year"
+    year: "year",
+    img: null
 }
 
 export default ContentBox

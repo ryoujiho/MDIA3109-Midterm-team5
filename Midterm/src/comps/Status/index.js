@@ -8,14 +8,12 @@ const StatusContainer = styled.div`
     align-items:center;
     justify-content:center;
     border-radius: 50px;
-    color :white;
+    color: #fff;
     font-family: roboto;
     font-weight: 500;
-
     background: ${({ bg }) => handleBG(bg)};
-
-    border: ${props => props.border ? props.border : "3px black solid"};
-`;
+    box-shadow:${props => props.selected ? "inset 0px 0px 0px 2px #000" : "none"}; /* makes border insdie */
+    `;
 
 const handleBG = bg => {
     switch (bg) {
@@ -31,17 +29,17 @@ const handleBG = bg => {
 }
 
 
-const Status = ({bg, border, text}) => {
-    return <div> 
-    <StatusContainer border={border} bg={bg}> 
+const Status = ({bg, selected, text, onClick}) => {
+    return <div onClick={onClick}> 
+    <StatusContainer selected={selected} bg={bg}> 
         <p>{text}</p>
     </StatusContainer>
     </div>
 }
 
 Status.defaultProps = {
-    border: "none",
     text: "status",
+    selected: false
 }
 
 export default  Status;
