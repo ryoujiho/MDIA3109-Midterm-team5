@@ -44,7 +44,7 @@ const ContentInfo = (props) => {
         console.log(resp);
     }
     return <div className="Content-detail">
-        <TopBar/>
+        <TopBar header={"Edit Content"}/>
         <div className="status-platform">
                 <Status bg={contents.status} text={contents.status}/>
                 <Platform bg={contents.platform} text={contents.platform}/>

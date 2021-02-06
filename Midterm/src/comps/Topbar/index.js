@@ -24,7 +24,7 @@ const Hamburger = styled.div`
 `;
 
 const Header = styled.h2`
-    font-size:15pt;
+    font-size:15pt !important;
 `;
 
 const Settings = styled.div`
