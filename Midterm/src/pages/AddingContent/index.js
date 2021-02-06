@@ -52,7 +52,7 @@ const AddContent = () => {
     ]
 
     return <div className="add-content">
-        <TopBar />
+        <TopBar header={"Add Contents"}/>
         <InputComp className="content-name" inputtitle={"Content Name"} catchInput={(e) => {
             setTitle(e.target.value)
         }} />
