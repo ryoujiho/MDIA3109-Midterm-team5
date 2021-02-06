@@ -1,18 +1,43 @@
 .Content-detail {
     width: 375px;
     max-width: 375px;
+    height:100vh;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    justify-content: flex-start;
     
 
+    h2 {
+        font-size:16px;
+    }
+
     .content-info {
-        width:90%;
+        width:100%;
         display:flex;
         justify-content: center;
         align-items: center;
-        margin:20px 0px;
+        flex-direction: column;
     }
 
+    .status-platform {
+        width:100%;
+        display:flex;
+        justify-content: space-around;
+        margin:40px 0px;
+
+    }
+
+    .buttons{
+        padding: 0px 0px;
+
+        div, a {
+            margin:20px 0px;
+        }
+
+        a {
+            text-decoration: none !important;
+            color:#000;
+        }
+    }
 }

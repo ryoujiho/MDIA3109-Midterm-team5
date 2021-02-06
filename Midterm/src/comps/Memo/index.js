@@ -14,20 +14,23 @@ const MemoText = styled.div`
 `
 const MemoInput = styled.textarea`
     border-bottom:gray 1px solid;  
+    width:100%;
+    max-width:320px;
+    padding:5px;
 `
 
-const Memo =({border, catchMemo}) => {
+const Memo =({placeholder, catchMemo}) => {
 
     return <MemoContainer>
        <MemoText>Memo</MemoText>
        <MemoInput rows="4" cols="40" type='text' 
-       placeholder='Leave Memo'onChange={catchMemo}></MemoInput>
+       placeholder={placeholder} onChange={catchMemo}></MemoInput>
 
     </MemoContainer>
 }
 
 Memo.defaultProps = {
-   
+   placehodler:"leave memo"
 }
 
 export default Memo

@@ -14,6 +14,7 @@ const InputTitle = styled.h2`
 
 const InputThing = styled.input`
     width:100%;
+    max-width:320px;
     padding:10px 0px;
     outline:none;
 

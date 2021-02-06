@@ -12,16 +12,17 @@ const StatusContainer = styled.div`
     font-family: roboto;
     font-weight: 500;
     background: ${({ bg }) => handleBG(bg)};
-    box-shadow:${props => props.selected ? "inset 0px 0px 0px 2px #000" : "none"}; /* makes border insdie */
+    box-shadow:${props => props.selected};
+    margin:0px 0px 5px 0px;
     `;
 
 const handleBG = bg => {
     switch (bg) {
-        case "watched":
+        case "Watched":
             return "linear-gradient(90deg, #FF4752 10.09%, #C348FF 93.58%)";
-        case "watching":
+        case "Watching":
             return "linear-gradient(90deg, #C347FF 6.42%, #4A53FF 91.74%)";
-        case "waiting":
+        case "Waiting":
             return "linear-gradient(90deg, #FF7347 10.09%, #FF4874 91.74%)";
         default:
             return "#3E3E3E";
@@ -38,8 +39,7 @@ const Status = ({bg, selected, text, onClick}) => {
 }
 
 Status.defaultProps = {
-    text: "status",
-    selected: false
+    text: "Status",
 }
 
 export default  Status;
