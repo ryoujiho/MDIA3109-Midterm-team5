@@ -23,6 +23,10 @@ const Hamburger = styled.div`
     }
 `;
 
+const Header = styled.h2`
+    font-size:15pt;
+`;
+
 const Settings = styled.div`
     margin-right:10px;
     width:30px;
@@ -44,7 +48,7 @@ const MenuWrapper = styled.div`
 
 
 
-const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon}) => {
+const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset, netflix, disney, hulu, amazon,header}) => {
     const [openMenu, setOpenMenu] = useState(false);
     return <TopBarContainer>
         <Hamburger onClick={()=>{
@@ -52,7 +56,7 @@ const TopBar =({onWatched, onWatching, onStopped, onWaiting, onReset, netflix, d
         }}>
             <img src="Hamburger_Menu.png"/>
         </Hamburger>
-        
+        <Header>{header}</Header>
         <Settings>
             <img src="settings.png" />
         </Settings>

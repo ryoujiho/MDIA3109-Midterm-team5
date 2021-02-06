@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const ContentCont = styled.div`
     width:90%;
-    // height:150px;
     position: relative;
-    max-height: 50%;
+    min-height:150px;
+    max-height: 150px;
     border: 1px solid grey;
     display:flex;
     margin-bottom: 20px;
@@ -50,12 +50,13 @@ const ContentCont = styled.div`
 
 const ConImg = styled.div `
     width:40%;
-    height: 100%;
+    max-height:150px;
     background-color: grey;
 
     img {
         width: 100%;
         height: 100%;
+        max-height:100%;
         object-fit:cover;
     }
 `;

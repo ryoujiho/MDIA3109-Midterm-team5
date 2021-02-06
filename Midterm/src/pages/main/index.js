@@ -14,6 +14,7 @@ import {
 const Main = () => {
 
     const [finalMovie, setfinalMovie] = useState([]);
+    const [header, setHeader] = useState('');
 
     const HandleMovies = async() => {
         let resp = await axios.get("/api/movies/filter/nothing");
@@ -33,44 +34,57 @@ const Main = () => {
         console.log(finalMovie)
     }
 
+    const HeaderReset = () => {
+        setHeader("");
+    }
+
     useEffect(()=>{
         HandleMovies()
     }, [])
 
     return <div className="main">
-        <TopBar onWatched={()=>{
+        <TopBar header={header} onWatched={()=>{
            HandleFilter("watched");
+           setHeader("Watched")
         }}
         onWatching={()=>{
             HandleFilter("watching");
+            setHeader("Watching")
         }}
 
         onStopped={()=>{
             HandleFilter("stopped");
+            setHeader("Stopped")
         }}
 
         onWaiting={()=>{
             HandleFilter("waiting");
+            setHeader("Waiting")
         }}
         
         netflix={()=>{
             HandlePlatforms("Netflix");
+            setHeader("Netflix")
         }}
 
         disney={()=>{
             HandlePlatforms("Disney+");
+            setHeader("Disney+")
         }}
 
         hulu={()=>{
             HandlePlatforms("Hulu");
+            setHeader("Huju")
         }}
 
         amazon={()=>{
             HandlePlatforms("Amazon");
+            setHeader("Amazon Prime")
         }}
 
         onReset={()=>{
             HandleMovies()
+            HeaderReset()
         }
         }
         />
@@ -79,6 +93,7 @@ const Main = () => {
                 return  <Link 
                 style={{ textDecoration: 'none'}} to={{ pathname: "/ContentDetail", state: {o} }}>
                     <ContentBox 
+                        img={o.img}
                         title={o.title} 
                         director={o.director}
                         year={o.year}/>

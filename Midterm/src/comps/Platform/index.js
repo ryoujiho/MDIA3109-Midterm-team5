@@ -8,28 +8,27 @@ const StatusContainer = styled.div`
     align-items:center;
     justify-content:center;
     border-radius: 50px;
-    color : ${props => props.color ? props.color : "white "};
+    color : ${props => props.color};
+    box-shadow:${props => props.selected};
     font-family: roboto;
     font-weight: 500;
-
     background: ${({ bg }) => handleBG(bg)};
-
-    border: ${props => props.border ? props.border : "3px black solid"};
+    margin:0px 0px 5px 0px;
 `;
 
 const handleBG = bg => {
     switch (bg) {
-        case "apple":
+        case "Apple":
             return "#363636";
-        case "disney":
+        case "Disney+":
             return "#0E47A1";
-        case "youtube":
+        case "Youtube":
             return "#FF0000";
-        case "amazon":
+        case "Amazon":
             return "#A0CCFF";
-        case "hulu":
+        case "Hulu":
             return "#1CE783";
-        case "netflix":
+        case "Netflix":
             return "#FF0000";
         default:
             return "black";
@@ -37,9 +36,9 @@ const handleBG = bg => {
 }
 
 
-const Plateform = ({bg, border, text, color, onClick}) => {
+const Plateform = ({bg, text, color, onClick, selected}) => {
     return <div onClick={onClick}> 
-    <StatusContainer color={color} border={border} bg={bg}> 
+    <StatusContainer selected={selected} color={color} bg={bg}> 
         <p>{text}</p>
     </StatusContainer>
     </div>
@@ -47,7 +46,7 @@ const Plateform = ({bg, border, text, color, onClick}) => {
 
 Plateform.defaultProps = {
     border: "none",
-    text: "status",
+    text: "Platform",
     color: "white"
 }
 

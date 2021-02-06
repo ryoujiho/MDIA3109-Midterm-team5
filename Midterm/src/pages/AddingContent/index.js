@@ -19,6 +19,7 @@ const AddContent = () => {
     const [memo, setMemo] = useState("");
     const [selected, setSelected] = useState(false);
 
+
     const HandleAdding = async (title, director, status, platform, year, img, memo) => {
         let resp = await axios.post("/api/movies", {
             title: title,
@@ -32,6 +33,23 @@ const AddContent = () => {
         })
         console.log(resp);
     }
+
+
+    const StatusArr = [
+        "Watching",
+        "Watched",
+        "Waiting",
+        "Stopped"
+    ]
+    
+    const PlatformArr = [
+        "Apple",
+        "Youtube",
+        "Netflix",
+        "Disney",
+        "Amazon",
+        "Hulu"
+    ]
 
     return <div className="add-content">
         <TopBar />
@@ -47,67 +65,35 @@ const AddContent = () => {
                 setYear(e.target.value)
             }} />
         </div>
-        <h2>Status</h2>
-        <div className="status">
-            <table>
-                <tr>
-                    <td>
-                        <Status className="btn" selected={selected} onClick={() => {
-                            setStatus("watching")
-                            setSelected(!selected)
-                        }} text="Watching" bg="watching" />
-                    </td>
-                    <td>
-                        <Status className="btn" selected={selected} onClick={() => {
-                            setStatus("watched")
-                            setSelected(!selected)
-                        }} text="Watched" bg="watched" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <Status className="btn" onClick={() => {
-                            setStatus("waiting")
-                        }} text="Waiting" bg="waiting" />
-                    </td>
-                    <td>
-                        <Status className="btn" onClick={() => {
-                            setStatus("stopped")
-                        }} text="Stopped" bg="stopped" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <h2>Platform</h2>
-        <div className="platform">
-            <table>
-                <tr>
-                    <td>
-                        <Platform className="btn" onClick={() => {
-                            setPlatform("Netflix")
-                        }} text="Netflix" bg="netflix" color="black" />
-                    </td>
-                    <td>
-                        <Platform className="btn" onClick={() => {
-                            setPlatform("Disney+")
-                        }} text="Disney +" bg="disney" />
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <Platform className="btn" onClick={() => {
-                            setPlatform("Amazon")
-                        }} text="Amazon" bg="amazon" color="black" />
-                    </td>
-                    <td>
-                        <Platform className="btn" onClick={() => {
-                            setPlatform("Hulu")
-                        }} text="Hulu" bg="hulu" color="black" />
-
-                    </td>
-                </tr>
-            </table>
+        <div className="contents-status-platform">
+            <div className="status">
+                    <h2>Status</h2>
+                        {StatusArr.map((i)=>{
+                            return (
+                                    <Status className="btn" 
+                                    onClick={()=>{
+                                        setStatus(i)
+                                    }}
+                                    selected={status.includes(i) ? "inset 0px 0px 0px 2px #000" : "none" }
+                                    text={i} bg={i} />
+                                )
+                            })}
+            </div>
+            <div className="platform">
+                <h2>Platform</h2>
+                    {PlatformArr.map((i)=>{
+                            return (
+                                <td>
+                                    <Platform className="btn" 
+                                    onClick={()=>{
+                                        setPlatform(i)
+                                    }}
+                                    selected={platform.includes(i) ? "inset 0px 0px 0px 2px #000" : "none" }
+                                    text={i} bg={i} />
+                                </td>
+                            )
+                        })}
+            </div>
         </div>
         <Memo catchMemo={(e) => {
             setMemo(e.target.value)
