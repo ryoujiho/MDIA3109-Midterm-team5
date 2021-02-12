@@ -21,17 +21,11 @@ const ContentInfo = (props) => {
     console.log(contents)
 
     const [id, setId] = useState(contents.id);
-    console.log(contents.id);
-    const [title, setTitle] = useState("");
-    const [director, setDirector] = useState("");
-    const [status, setStatus] = useState("");
-    const [platform, setPlatform] = useState("");
-    const [year, setYear] = useState("");
-    const [img, setImg] = useState("");
-    const [memo, setMemo] = useState("");
+    const [title, setTitle] = useState(contents.title);
+    const [memo, setMemo] = useState(contents.memo);
 
     const HandleEditing = async(id, title, memo) => {
-        let resp = await axios.patch(`/api/movies/${id}`, {
+        let resp = await axios.put(`/api/movies/${id}`, {
             id:id,
             title: title,
             memo:memo
@@ -60,7 +54,7 @@ const ContentInfo = (props) => {
             <div className="buttons">
                 <Link to='/main'>
                     <Button onClick={()=>
-                        HandleEditing(id, title, director, status, platform, year, img, memo)
+                        HandleEditing(id, title, memo)
                     } text={"Edit"} />
                 </Link>
 

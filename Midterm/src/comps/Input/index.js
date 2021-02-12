@@ -26,7 +26,7 @@ const InputThing = styled.input`
 const InputComp = ({inputtitle, catchInput, value}) => {
     return <InputCont>
         <InputTitle>{inputtitle}</InputTitle>
-        <InputThing onChange={catchInput} placeholder={value}/>
+        <InputThing onChange={catchInput} defaultValue={value}/>
     </InputCont>
 }
 

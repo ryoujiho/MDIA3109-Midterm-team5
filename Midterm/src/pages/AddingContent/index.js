@@ -6,7 +6,13 @@ import Platform from 'comps/Platform';
 import Status from 'comps/Status';
 import TopBar from 'comps/Topbar';
 import React, { useState } from 'react';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+  
 
 const AddContent = () => {
 
@@ -46,7 +52,7 @@ const AddContent = () => {
         "Apple",
         "Youtube",
         "Netflix",
-        "Disney",
+        "Disney+",
         "Amazon",
         "Hulu"
     ]
@@ -98,10 +104,10 @@ const AddContent = () => {
         <Memo catchMemo={(e) => {
             setMemo(e.target.value)
         }} />
-        <Button onClick={() => {
+        <Link to='/main'><Button onClick={() => {
             HandleAdding(title, director, status, platform, year, img)
         }} text="Add" />
-
+        </Link>
     </div>
 }
 

@@ -6,6 +6,13 @@
     width: 100%;
     max-width: 375px;
 
+
+        
+    a {
+        text-decoration: none !important;
+        color:#000;
+    }
+    
     table{
         display: flex;
         flex-direction: column;
@@ -36,7 +43,8 @@
         h2 {
             font-size:16px;
         }
-    
+
+
         }
 
     }

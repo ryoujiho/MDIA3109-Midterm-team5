@@ -17,20 +17,21 @@ const Main = () => {
     const [header, setHeader] = useState('');
 
     const HandleMovies = async() => {
-        let resp = await axios.get("/api/movies/filter/nothing");
+        let resp = await axios.get("/api/movies");
         setfinalMovie(...[resp.data.movies])
         console.log(finalMovie)
     }
 
     const HandleFilter = async(status) => {
-        let resp = await axios.get(`/api/movies/filter/${status}`);
-        setfinalMovie(...[resp.data.movies])
+        let resp = await axios.get(`/api/movies/status/${status}`);
+        setfinalMovie(...[resp.data.result])
+        console.log(resp.data.result)
         console.log(finalMovie)
     }
 
     const HandlePlatforms = async(platform) => {
         let resp = await axios.get(`/api/movies/platform/${platform}`);
-        setfinalMovie(...[resp.data.movies])
+        setfinalMovie(...[resp.data.result])
         console.log(finalMovie)
     }
 
@@ -44,25 +45,26 @@ const Main = () => {
 
     return <div className="main">
         <TopBar header={header} onWatched={()=>{
-           HandleFilter("watched");
+           HandleFilter("Watched");
            setHeader("Watched")
         }}
         onWatching={()=>{
-            HandleFilter("watching");
+            HandleFilter("Watching");
             setHeader("Watching")
         }}
 
         onStopped={()=>{
-            HandleFilter("stopped");
+            HandleFilter("Stopped");
             setHeader("Stopped")
         }}
 
         onWaiting={()=>{
-            HandleFilter("waiting");
+            HandleFilter("Waiting");
             setHeader("Waiting")
         }}
         
         netflix={()=>{
+            console.log("....^_^", finalMovie);
             HandlePlatforms("Netflix");
             setHeader("Netflix")
         }}
@@ -93,7 +95,7 @@ const Main = () => {
                 return  <Link 
                 style={{ textDecoration: 'none'}} to={{ pathname: "/ContentDetail", state: {o} }}>
                     <ContentBox 
-                        img={o.img}
+                        img={o.Img}
                         title={o.title} 
                         director={o.director}
                         year={o.year}/>
