@@ -24,7 +24,7 @@ const Memo =({placeholder, catchMemo}) => {
     return <MemoContainer>
        <MemoText>Memo</MemoText>
        <MemoInput rows="4" cols="40" type='text' 
-       placeholder={placeholder} onChange={catchMemo}></MemoInput>
+       defaultValue={placeholder} onChange={catchMemo}></MemoInput>
 
     </MemoContainer>
 }
